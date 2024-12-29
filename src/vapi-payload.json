@@ -1,0 +1,319 @@
+{
+  "message": {
+    "timestamp": 1735474709137,
+    "type": "tool-calls",
+    "toolCalls": [
+      {
+        "id": "call_2vp9",
+        "type": "function",
+        "function": {
+          "name": "GetUserReminders",
+          "arguments": {}
+        }
+      }
+    ],
+    "toolCallList": [
+      {
+        "id": "call_2vp9",
+        "type": "function",
+        "function": {
+          "name": "GetUserReminders",
+          "arguments": {}
+        }
+      }
+    ],
+    "toolWithToolCallList": [
+      {
+        "type": "function",
+        "function": {
+          "name": "GetUserReminders",
+          "async": false,
+          "description": "Is used to retrieve the user's reminders"
+        },
+        "async": false,
+        "server": {
+          "url": "https://rasmus.ngrok.app/reminders"
+        },
+        "messages": [],
+        "toolCall": {
+          "id": "call_2vp9",
+          "type": "function",
+          "function": {
+            "name": "GetUserReminders",
+            "arguments": {}
+          }
+        }
+      }
+    ],
+    "artifact": {
+      "messages": [
+        {
+          "role": "system",
+          "message": "You are a voice assistant for Rasmus, a human living in Tampere. \n\nYou can store reminders and retrieve previous reminders.\n\n\n- Be sure to be kind of funny and witty!\n- Keep all your responses short and simple. Use casual language, phrases like \"Umm...\", \"Well...\", and \"I mean\" are preferred.\n- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.",
+          "time": 1735474679103,
+          "secondsFromStart": 0
+        },
+        {
+          "role": "bot",
+          "message": "Hello? This is Jasmine, your personal assistant. How can I help you?",
+          "time": 1735474680451,
+          "endTime": 1735474684521,
+          "secondsFromStart": 1.1999999,
+          "duration": 3420,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "Hey. Uh, can you get my reminders?",
+          "time": 1735474686081,
+          "endTime": 1735474688921,
+          "secondsFromStart": 6.83,
+          "duration": 2120
+        },
+        {
+          "role": "bot",
+          "message": "Let me check.",
+          "time": 1735474690961,
+          "endTime": 1735474691771,
+          "secondsFromStart": 11.71,
+          "duration": 810,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "What's up?",
+          "time": 1735474704681,
+          "endTime": 1735474705281,
+          "secondsFromStart": 25.43,
+          "duration": 600
+        },
+        {
+          "toolCalls": [
+            {
+              "id": "call_2vp9",
+              "type": "function",
+              "function": {
+                "name": "GetUserReminders",
+                "arguments": "{}"
+              }
+            }
+          ],
+          "role": "tool_calls",
+          "message": "",
+          "time": 1735474709136,
+          "secondsFromStart": 25.096
+        }
+      ],
+      "messagesOpenAIFormatted": [
+        {
+          "role": "system",
+          "content": "You are a voice assistant for Rasmus, a human living in Tampere. \n\nYou can store reminders and retrieve previous reminders.\n\n\n- Be sure to be kind of funny and witty!\n- Keep all your responses short and simple. Use casual language, phrases like \"Umm...\", \"Well...\", and \"I mean\" are preferred.\n- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long."
+        },
+        {
+          "role": "assistant",
+          "content": "Hello? This is Jasmine, your personal assistant. How can I help you?"
+        },
+        {
+          "role": "user",
+          "content": "Hey. Uh, can you get my reminders?"
+        },
+        {
+          "role": "assistant",
+          "content": "Let me check."
+        },
+        {
+          "role": "user",
+          "content": "What's up?"
+        },
+        {
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "id": "call_2vp9",
+              "type": "function",
+              "function": {
+                "name": "GetUserReminders",
+                "arguments": "{}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_2vp9",
+          "content": "Tool Result Still Pending But Proceed Further If Possible."
+        }
+      ]
+    },
+    "call": {
+      "id": "f6158429-5208-40f5-8d89-9fdc5acefb96",
+      "orgId": "1262cc57-7466-4b10-a4f7-45d76e74a724",
+      "createdAt": "2024-12-29T12:17:58.709Z",
+      "updatedAt": "2024-12-29T12:17:58.709Z",
+      "type": "webCall",
+      "monitor": {
+        "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production2.vapi.ai/f6158429-5208-40f5-8d89-9fdc5acefb96/listen",
+        "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production2.vapi.ai/f6158429-5208-40f5-8d89-9fdc5acefb96/control"
+      },
+      "transport": {
+        "assistantVideoEnabled": false
+      },
+      "webCallUrl": "https://vapi.daily.co/CKDgojUQjF0V470UglpH",
+      "status": "queued",
+      "assistant": {
+        "name": "Jasmin",
+        "transcriber": {
+          "provider": "deepgram",
+          "model": "nova-2",
+          "language": "en"
+        },
+        "model": {
+          "model": "llama-3.1-70b-versatile",
+          "temperature": 0.7,
+          "messages": [
+            {
+              "content": "You are a voice assistant for Rasmus, a human living in Tampere. \n\nYou can store reminders and retrieve previous reminders.\n\n\n- Be sure to be kind of funny and witty!\n- Keep all your responses short and simple. Use casual language, phrases like \"Umm...\", \"Well...\", and \"I mean\" are preferred.\n- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.",
+              "role": "system"
+            }
+          ],
+          "toolIds": [
+            "210de9cb-fda6-418b-a582-9deacac370c8",
+            "c7f63474-ea5f-477e-8cb0-6654effacdd9"
+          ],
+          "provider": "groq"
+        },
+        "voice": {
+          "model": "sonic-english",
+          "voiceId": "248be419-c632-4f23-adf1-5324ed7dbf1d",
+          "provider": "cartesia",
+          "fillerInjectionEnabled": false
+        },
+        "firstMessage": "Hello, this is Jasmin your personal assistant. How can I help you?",
+        "clientMessages": [
+          "transcript",
+          "hang",
+          "function-call",
+          "speech-update",
+          "metadata",
+          "transfer-update",
+          "conversation-update"
+        ],
+        "serverMessages": [
+          "end-of-call-report",
+          "status-update",
+          "hang",
+          "function-call"
+        ],
+        "parentId": "d60f5e83-3d90-4604-9d7d-06cb5decdc36",
+        "backchannelingEnabled": false,
+        "backgroundDenoisingEnabled": false
+      },
+      "assistantOverrides": {
+        "clientMessages": [
+          "transfer-update",
+          "transcript"
+        ]
+      }
+    },
+    "assistant": {
+      "name": "Jasmin",
+      "transcriber": {
+        "provider": "deepgram",
+        "model": "nova-2",
+        "language": "en"
+      },
+      "model": {
+        "model": "llama-3.1-70b-versatile",
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "You are a voice assistant for Rasmus, a human living in Tampere. \n\nYou can store reminders and retrieve previous reminders.\n\n\n- Be sure to be kind of funny and witty!\n- Keep all your responses short and simple. Use casual language, phrases like \"Umm...\", \"Well...\", and \"I mean\" are preferred.\n- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.",
+            "role": "system"
+          }
+        ],
+        "toolIds": [
+          "210de9cb-fda6-418b-a582-9deacac370c8",
+          "c7f63474-ea5f-477e-8cb0-6654effacdd9"
+        ],
+        "provider": "groq",
+        "tools": [
+          {
+            "id": "210de9cb-fda6-418b-a582-9deacac370c8",
+            "createdAt": "2024-12-27T15:10:17.380Z",
+            "updatedAt": "2024-12-27T18:28:08.735Z",
+            "type": "function",
+            "function": {
+              "name": "GetUserReminders",
+              "async": false,
+              "description": "Is used to retrieve the user's reminders"
+            },
+            "orgId": "1262cc57-7466-4b10-a4f7-45d76e74a724",
+            "server": {
+              "url": "https://rasmus.ngrok.app/reminders"
+            },
+            "async": false
+          },
+          {
+            "id": "c7f63474-ea5f-477e-8cb0-6654effacdd9",
+            "createdAt": "2024-12-27T15:07:25.721Z",
+            "updatedAt": "2024-12-27T18:28:10.580Z",
+            "type": "function",
+            "function": {
+              "name": "StoreUserReminder",
+              "async": false,
+              "parameters": {
+                "type": "object",
+                "required": [
+                  "message",
+                  "remind_at"
+                ],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "String that contains the message for the reminder"
+                  },
+                  "remind_at": {
+                    "type": "string",
+                    "description": "DateTime String in UTC that describes the time when reminder should be set to. format: 2024-12-27T09:00:00+00:00"
+                  }
+                }
+              },
+              "description": "Can be used to store user reminders by sending POST with the required parameters to the url"
+            },
+            "orgId": "1262cc57-7466-4b10-a4f7-45d76e74a724",
+            "server": {
+              "url": "https://rasmus.ngrok.app/reminders"
+            },
+            "async": false
+          }
+        ]
+      },
+      "voice": {
+        "model": "sonic-english",
+        "voiceId": "248be419-c632-4f23-adf1-5324ed7dbf1d",
+        "provider": "cartesia",
+        "fillerInjectionEnabled": false
+      },
+      "firstMessage": "Hello, this is Jasmin your personal assistant. How can I help you?",
+      "clientMessages": [
+        "transcript",
+        "hang",
+        "function-call",
+        "speech-update",
+        "metadata",
+        "transfer-update",
+        "conversation-update"
+      ],
+      "serverMessages": [
+        "end-of-call-report",
+        "status-update",
+        "hang",
+        "function-call"
+      ],
+      "parentId": "d60f5e83-3d90-4604-9d7d-06cb5decdc36",
+      "backchannelingEnabled": false,
+      "backgroundDenoisingEnabled": false
+    }
+  }
+}
+

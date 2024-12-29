@@ -1,0 +1,62 @@
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": {
+      "timestamp": 1735474709137,
+      "type": "tool-calls",
+      "toolCalls": [
+        {
+          "id": "call_2vp9",
+          "type": "function",
+          "function": {
+            "name": "GetUserReminders",
+            "arguments": {}
+          }
+        }
+      ]
+    }
+  }' \
+  https://rasmus.ngrok.app/tool-call
+
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": {
+      "timestamp": 1735474709137,
+      "type": "tool-calls",
+      "toolCalls": [
+        {
+          "id": "call_2vp9",
+          "type": "function",
+          "function": {
+            "name": "DeleteAllReminders",
+            "arguments": {}
+          }
+        }
+      ]
+    }
+  }' \
+  https://rasmus.ngrok.app/tool-call
+
+  curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": {
+      "timestamp": 1735474709137,
+      "type": "tool-calls",
+      "toolCalls": [
+        {
+          "id": "call_2vp9",
+          "type": "function",
+          "function": {
+            "name": "StoreUserReminder",
+            "arguments": {
+              "message": "buy milk",
+              "remind_at": "2023-01-01T00:00:00+00:00"
+            }
+          }
+        }
+      ]
+    }
+  }' \
+  https://rasmus.ngrok.app/tool-call
