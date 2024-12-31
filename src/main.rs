@@ -7,6 +7,7 @@ use axum::{
     middleware::{self, Next},
     Router,
 };
+use serde_json::json;
 use axum::debug_handler;
 use tracing_subscriber::field::debug;
 use crate::lib::establish_connection;
@@ -103,11 +104,17 @@ struct FunctionCall {
 #[serde(untagged)] // This allows for multiple possible structures
 enum FunctionArgs {
     Create(CreateReminderArgs),
+    Message(PerplexityMessageArgs),
     Empty(EmptyArgs),
 }
 
 #[derive(Deserialize, Debug, Clone)]
 struct EmptyArgs {}
+
+#[derive(Deserialize, Debug, Clone)]
+struct PerplexityMessageArgs {
+    message: String,
+}
 
 #[derive(Deserialize, Debug, Clone)]
 struct CreateReminderArgs {
@@ -149,9 +156,17 @@ async fn handle_tool_call(
                     .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()))?;
                 ToolCallResponse::Multiple(Vec::new()) // Return empty vector after deletion
             },
+            (name, FunctionArgs::Message(args)) if name == "AskPerplexity" => {
+                tracing::info!("Asking Perplexity");
+                let response = ask_perplexity(&args.message)
+                    .await
+                    .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()))?;
+
+                ToolCallResponse::Message(response)
+            },
             _ => {
                 tracing::warn!("Unknown function call: {:#?}", tool_call.function.name);
-                ToolCallResponse::Multiple(Vec::new())
+                ToolCallResponse::Message("Unknown function call".to_string())
             }
 
         };
@@ -167,6 +182,37 @@ async fn handle_tool_call(
 }
 
 
+async fn ask_perplexity(message: &str) -> Result<String, reqwest::Error> {
+    let api_key = std::env::var("PERPLEXITY_API_KEY").expect("PERPLEXITY_API_KEY must be set");
+    let client = reqwest::Client::new();
+    
+    let payload = json!({
+        "model": "llama-3.1-sonar-small-128k-online",
+        "messages": [
+            {
+                "role": "system",
+                "content": "Be precise and concise."
+            },
+            {
+                "role": "user",
+                "content": message
+            }
+        ]
+    });
+
+    let response = client
+        .post("https://api.perplexity.ai/chat/completions")
+        .header("accept", "application/json")
+        .header("content-type", "application/json")
+        .header("Authorization", format!("Bearer {}", api_key))
+        .json(&payload)
+        .send()
+        .await?;
+
+    let result = response.text().await?;
+    println!("{}", result);
+    Ok(result)
+}
 
 fn create_reminder(
     conn: &mut SqliteConnection,

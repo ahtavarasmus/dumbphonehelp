@@ -60,3 +60,27 @@ curl -X POST \
     }
   }' \
   https://rasmus.ngrok.app/tool-call
+
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": {
+      "timestamp": 1735474709137,
+      "type": "tool-calls",
+      "toolCalls": [
+        {
+          "id": "call_2vp9",
+          "type": "function",
+          "function": {
+            "name": "AskPerplexity",
+            "arguments": {
+                "message": "what is going on with elon musks new name on X?"
+            }
+          }
+        }
+      ]
+    }
+  }' \
+  https://rasmus.ngrok.app/tool-call
+
+

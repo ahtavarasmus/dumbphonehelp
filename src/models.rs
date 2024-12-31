@@ -39,6 +39,7 @@ impl Reminder {
 pub enum ToolCallResponse {
     Single(Reminder),
     Multiple(Vec<Reminder>),
+    Message(String),
 }
 
 #[derive(Serialize, Debug)]
